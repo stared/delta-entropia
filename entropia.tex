@@ -1,10 +1,12 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{00A0}{~}  % or not it by utf8x
 \usepackage[T4]{fontenc}
 \usepackage[polish]{babel}
 %\usepackage {polski}
 \let\lll\undefined
 \usepackage{amssymb,amsmath,amsthm}
+\usepackage{hyperref}
 \marginparwidth=5.2cm \hoffset=2.5cm \textwidth=12.5cm
 \textheight=25.2cm \reversemarginpar \voffset=-1in
 %\addtolength{\textheight}{2in}
@@ -26,21 +28,41 @@
 
 O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie, to sama wielkość jest ściśle określonym pojęciem --- \emph{informacją Shannona}:
 %
+    \marginpar{\footnotesize Cześciej jest pisane w sumie $-p_i \log(p_i)$ --- równoważnie ale, moim zdaniem, mniej dydaktycznie.}
+%
 \begin{align}
-    H = -\sum_{i=1}^{n} p_i \log(p_i),
+    H = \sum_{i=1}^{n} p_i \log \left(\tfrac{1}{p_i} \right),
 \end{align}
+%
+    \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)\log_2(x)$.}
 %
 gdzie $\{p_1, \ldots, p_n\}$ to pewien rozkład prawdopodobieństwa. Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \emph{bitach}. 
 
-    \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)*\log_2(x)$.}
-
-Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $-0 \log(1) = 0$ --- wszak nie ma tu miejsca na losowość. Gdy rzucamy uczciwą monetą, entropia to $-\tfrac{1}{2} \log(\tfrac{1}{2}) -\tfrac{1}{2} \log(\tfrac{1}{2}) = 1$.
-
-    \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
-
+Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $0 \log(1) = 0$ bitów --- wszak nie ma tu miejsca na losowość.
+Gdy rzucamy uczciwą monetą, entropia to $\tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2) = 1$ bit.
 Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
+Dla kostki z $6$ ścianami to $\log(6)\approx 2.6$. 
 
-I co robi w tym wzorze minus oraz logarytm?
+    % \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
+
+Dlaczego potrzebujemy w tym wzorze logarytmu? 
+W skrócie, by ``entropia zachowała się jak informacja''. Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii składników.
+
+    \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \href{http://blog.okcupid.com/index.php/how-races-and-religions-match-in-online-dating/}{tymi danymi}.}
+%
+Powedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha. Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
+Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_12 \}$ oraz uczucie od nas jako $\{q_1, q_2\}$.
+%
+\begin{align}
+    \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/(p_i q_j))
+    &= \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \left( \log(1/p_i) + \log(1/q_j) \right)\\
+    &= \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/p_i)
+    -\sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/q_j)\\
+    &= \sum_{i=1}^{12} p_i \log(1/p_i)
+    + \sum_{j=1}^2 q_j \log(1/q_j)
+\end{align}
+
+
 
 
 \section{TO DO:}
@@ -60,10 +82,7 @@ I co robi w tym wzorze minus oraz logarytm?
 \end{itemize}
 
 
- \marginpar{\footnotesize Dygresja}
-
-
- Lektury:
+ \marginpar{\footnotesize  Lektury:}
 
 
 \end{document}
