@@ -63,6 +63,17 @@ Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_12 \}$ oraz
 \end{align}
 
 
+Np. gramy w 20 pytań i chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika. Możemy zapytać ``Czy to jest żywe?'', gdzie mamy z grubsza pół-na-pół szanse, że usłyszymy ``tak'' lub ``nie''.  Zatem zadając takie pytanie, dowiadujemy się
+\begin{align}
+H(\{ \tfrac{1}{2},\tfrac{1}{2}\}) = \tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2)  = 1
+\end{align}
+czyli jeden bit informacji. 
+
+A może warto zadać pierwsze pytanie ``Czy chodzi o krzeszło?''? Wtedy z jednej strony jest mała szansa usłyszenia ``tak'' (powiedzmy, $1/1024$), niemniej gdy takowa odpowiedź padnie dostaniemy sporo informacji  ($-\log(1/1024)=10$). Jednak średnio po uzyskaniu odpowiedzi dostaniemy
+\begin{align}
+    H(\{ \tfrac{1}{1024},\tfrac{1023}{1024}\}) = \tfrac{1}{1024} \log(2014) + \tfrac{1023}{1024} \log(\tfrac{1024}{1023}) \approx 0.01
+\end{align}
+bita, czyli niewiele.
 
 
 \section{TO DO:}
