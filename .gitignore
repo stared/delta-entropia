@@ -1,0 +1,6 @@
+.DS_Store
+*.pdf
+*.aux
+*.fdb_latexmk
+*.log
+*.synctex.gz

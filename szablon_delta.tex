@@ -1,0 +1,32 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[cp1250]{inputenc} %cp1250 standard kodowania polskich znakow pod windows
+%\usepackage[latin2]{inputenc} %latin2(inaczej ISO-8859-2) standard kodowania polskich znakow czesciej spotykany pod linuxem
+
+\usepackage {polski}
+\usepackage{amssymb,amsmath,amsthm}
+\marginparwidth=5.2cm \hoffset=2.5cm \textwidth=12.5cm
+\textheight=25.2cm \reversemarginpar \voffset=-1in
+%\addtolength{\textheight}{2in}
+
+\begin{document}
+%tytu³
+\noindent\textbf{\LARGE Tytu³ artyku³u}
+
+\medskip
+%autor
+\noindent\textit{\Large Imiê NAZWISKO*} \marginpar{\footnotesize
+*afiliacja}
+
+\medskip
+ Polskie litery ¹æê³ñóœ¿Ÿ ¥ÆÊ£ÑÓŒ¯ Polskie litery mo¿na
+te¿ wprowadzaæ w konwencji "ciachowej" np./a ale najpierw trzeba
+u¿yæ komendy $\backslash$prefixing \prefixing.
+ \marginpar{\footnotesize Niektóre wyjaœnienia
+dla bardziej zaawansowanych czytelników lub jakieœ inne dygresje
+mo¿na umieszczaæ na marginesie. Wiêkszoœæ rysunków te¿ tu l¹duje.}
+Najlepiej j¹ wpisaæ przed $\backslash$begin \{document\}. Teraz mamy
+/a itd. Jeœli chcemy umieœciæ w tekœcie "ciach" to musimy u¿yæ dwóch
+ciachów
+//. Konwencjê "ciachow¹" mo¿na wy³¹czyæ komend¹ $\backslash$nonprefixing \nonprefixing.
+
+\end{document}
