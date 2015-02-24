@@ -75,6 +75,8 @@ A może warto zadać pierwsze pytanie ``Czy chodzi o krzeszło?''? Wtedy z jedne
 \end{align}
 bita, czyli niewiele.
 
+Na wzór na entropię Shannona można patrzeć również jak na średnią $\log(1/p)$. Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją? Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachącące z prawdopodobieństwem $p$, to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić). Dobrze, ale dlaczego branie średniej ma sens? Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter, każda niezależna od innych, to nie możmemy skompresować bardziej niż do długości $n H$. Z drugiej strony kody Huffmana pozwalają skompresować dość blisko $n H$,
+
 
 \section{TO DO:}
 
@@ -93,7 +95,9 @@ bita, czyli niewiele.
 \end{itemize}
 
 
- \marginpar{\footnotesize  Lektury:}
-
+ \marginpar{\footnotesize  Lektury:\\
+    \href{http://vserver1.cscs.lsa.umich.edu/~crshalizi/notebooks/information-theory.html}{Cosma Schalizi, Information theory}\\
+    \href{http://mathoverflow.net/questions/146463/what-is-entropy-really}{What is entropy, really? - MathOverflow}\\
+    \href{http://www.infinitepartitions.com/art001.html}{Dissecting the GZIP format}}
 
 \end{document}
