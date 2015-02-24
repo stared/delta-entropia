@@ -15,16 +15,16 @@
 
 \begin{document}
 %tytuł
-\noindent\textbf{\LARGE Informacja czy chaos}
+\noindent\textbf{\LARGE Prawdopodobieństwo a informacja}
 
 \medskip
 %autor
 \noindent\textit{\Large Piotr Migdał} \marginpar{\footnotesize
-*dr z ICFO -- The Institute of Photonic Sciences, Castelldefels (Barcelona)}
+*dr z ICFO--The Institute of Photonic Sciences, Castelldefels (Barcelona)}
 
 \medskip
 
-O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie, to sama wielkość jest ściśle określonym pojęciem
+O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie, to sama wielkość jest ściśle określonym pojęciem --- \emph{informacją Shannona}:
 %
 \begin{align}
     H = -\sum_{i=1}^{n} p_i \log(p_i),
@@ -32,21 +32,32 @@ O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie
 %
 gdzie $\{p_1, \ldots, p_n\}$ to pewien rozkład prawdopodobieństwa. Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \emph{bitach}. 
 
-    \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $ln(x)=ln(x)/ln(2)$.}
+    \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)*\log_2(x)$.}
 
-Kodowanie 
+Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $-0 \log(1) = 0$ --- wszak nie ma tu miejsca na losowość. Gdy rzucamy uczciwą monetą, entropia to $-\tfrac{1}{2} \log(\tfrac{1}{2}) -\tfrac{1}{2} \log(\tfrac{1}{2}) = 1$.
 
+    \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
 
-Informacja wzajemna
+Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
 
-Inne miary 
-
-Temperatura
-
+I co robi w tym wzorze minus oraz logarytm?
 
 
+\section{TO DO:}
 
-Gramy w 20 pytań - 
+\begin{itemize}
+    \item Prawdopodobieństwo a informacja
+    \item Kodowanie
+    \item Gramy w 20 pytań!
+    \item Temperatura?
+\end{itemize}
+
+\section{Kolejne odcinki}
+
+\begin{itemize}
+    \item Informacja wzajemna
+    \item Inne entropie
+\end{itemize}
 
 
  \marginpar{\footnotesize Dygresja}
