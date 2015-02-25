@@ -31,7 +31,7 @@ O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie
     \marginpar{\footnotesize Cześciej jest pisane w sumie $-p_i \log(p_i)$ --- równoważnie ale, moim zdaniem, mniej dydaktycznie.}
 %
 \begin{align}
-    H = \sum_{i=1}^{n} p_i \log \left(\tfrac{1}{p_i} \right),
+    H = \sum_{i=1}^{n} p_i \log \left(\tfrac{1}{p_i} \right),\label{eq:entropia}
 \end{align}
 %
     \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)\log_2(x)$.}
@@ -46,12 +46,12 @@ Dla kostki z $6$ ścianami to $\log(6)\approx 2.6$.
     % \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
 
 Dlaczego potrzebujemy w tym wzorze logarytmu? 
-W skrócie, by ``entropia zachowała się jak informacja''. Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii składników.
+Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii składników.
 
     \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \href{http://blog.okcupid.com/index.php/how-races-and-religions-match-in-online-dating/}{tymi danymi}.}
 %
 Powedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha. Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
-Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_12 \}$ oraz uczucie od nas jako $\{q_1, q_2\}$.
+Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_12 \}$ oraz uczucie od nas jako $\{q_1, q_2\}$. Tym samym prawdopodobieństwa poszczególnych zdarzeń to iloczyny: $p_i q_j$. Zatem jak z entropią?
 %
 \begin{align}
     \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/(p_i q_j))
@@ -61,6 +61,12 @@ Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_12 \}$ oraz
     &= \sum_{i=1}^{12} p_i \log(1/p_i)
     + \sum_{j=1}^2 q_j \log(1/q_j)
 \end{align}
+%
+Przy czym to nie jedyny powód dlaczego entropia ma taką, a nie inną, postać. Logarymtu można też skorzystać w inny sposób, by entropia się dodawała.
+
+Na wzór na entropię Shannona można patrzeć również jak na średnią informację. Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją? Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachącące z prawdopodobieństwem $p$, to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić). Dobrze, ale dlaczego branie średniej ma sens? Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter, każda niezależna od innych, to nie możmemy skompresować bardziej niż do długości $n H$. Z drugiej strony kody Huffmana pozwalają skompresować dość blisko $n H$,
+
+Da się to nawet opisać ``łopatologicznie''.
 
 
 Np. gramy w 20 pytań i chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika. Możemy zapytać ``Czy to jest żywe?'', gdzie mamy z grubsza pół-na-pół szanse, że usłyszymy ``tak'' lub ``nie''.  Zatem zadając takie pytanie, dowiadujemy się
@@ -75,15 +81,14 @@ A może warto zadać pierwsze pytanie ``Czy chodzi o krzeszło?''? Wtedy z jedne
 \end{align}
 bita, czyli niewiele.
 
-Na wzór na entropię Shannona można patrzeć również jak na średnią $\log(1/p)$. Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją? Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachącące z prawdopodobieństwem $p$, to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić). Dobrze, ale dlaczego branie średniej ma sens? Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter, każda niezależna od innych, to nie możmemy skompresować bardziej niż do długości $n H$. Z drugiej strony kody Huffmana pozwalają skompresować dość blisko $n H$,
 
+Ale 
 
 \section{TO DO:}
 
 \begin{itemize}
     \item Prawdopodobieństwo a informacja
     \item Kodowanie
-    \item Gramy w 20 pytań!
     \item Temperatura?
 \end{itemize}
 
