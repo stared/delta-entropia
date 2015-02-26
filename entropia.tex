@@ -21,8 +21,9 @@
 
 \medskip
 %autor
-\noindent\textit{\Large Piotr Migdał} \marginpar{\footnotesize
-*dr z ICFO--The Institute of Photonic Sciences, Castelldefels (Barcelona)}
+\noindent\textit{\Large Piotr Migdał}
+\marginpar{\footnotesize
+    *dr z ICFO--The Institute of Photonic Sciences, Castelldefels (Barcelona), obecnie freelancer z analizy danych \url{http://migdal.wikidot.com}}
 
 \medskip
 
@@ -34,7 +35,7 @@ O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie
     H = \sum_{i=1}^{n} p_i \log \left(\tfrac{1}{p_i} \right),\label{eq:entropia}
 \end{align}
 %
-    \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)\log_2(x)$.}
+    \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)\log_2(x)$. Np. dla podstawy $e$ jednostką jest \emph{nit}.}
 %
 gdzie $\{p_1, \ldots, p_n\}$ to pewien rozkład prawdopodobieństwa. Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \emph{bitach}. 
 
@@ -47,11 +48,11 @@ Dla kostki z $6$ ścianami to $\log(6)\approx 2.6$.
 
 Dlaczego potrzebujemy w tym wzorze logarytmu? 
 Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii składników.
-
+%
     \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \href{http://blog.okcupid.com/index.php/how-races-and-religions-match-in-online-dating/}{tymi danymi}.}
 %
 Powedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha. Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
-Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_12 \}$ oraz uczucie od nas jako $\{q_1, q_2\}$. Tym samym prawdopodobieństwa poszczególnych zdarzeń to iloczyny: $p_i q_j$. Zatem jak z entropią?
+Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_{12} \}$ oraz uczucie od nas jako $\{q_1, q_2\}$. Tym samym prawdopodobieństwa poszczególnych zdarzeń to iloczyny: $p_i q_j$. Zatem jak z entropią?
 %
 \begin{align}
     \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/(p_i q_j))
@@ -71,22 +72,20 @@ Da się to nawet opisać ``łopatologicznie''.
 
 Np. gramy w 20 pytań i chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika. Możemy zapytać ``Czy to jest żywe?'', gdzie mamy z grubsza pół-na-pół szanse, że usłyszymy ``tak'' lub ``nie''.  Zatem zadając takie pytanie, dowiadujemy się
 \begin{align}
-H(\{ \tfrac{1}{2},\tfrac{1}{2}\}) = \tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2)  = 1
+    \tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2)  = 1
 \end{align}
 czyli jeden bit informacji. 
 
 A może warto zadać pierwsze pytanie ``Czy chodzi o krzeszło?''? Wtedy z jednej strony jest mała szansa usłyszenia ``tak'' (powiedzmy, $1/1024$), niemniej gdy takowa odpowiedź padnie dostaniemy sporo informacji  ($-\log(1/1024)=10$). Jednak średnio po uzyskaniu odpowiedzi dostaniemy
 \begin{align}
-    H(\{ \tfrac{1}{1024},\tfrac{1023}{1024}\}) = \tfrac{1}{1024} \log(2014) + \tfrac{1023}{1024} \log(\tfrac{1024}{1023}) \approx 0.01
+    \tfrac{1}{1024} \log(2014) + \tfrac{1023}{1024} \log(\tfrac{1024}{1023}) \approx 0.01
 \end{align}
 bita, czyli niewiele.
-
-
-Ale 
 
 \section{TO DO:}
 
 \begin{itemize}
+    \item Liczenie entropii książek
     \item Prawdopodobieństwo a informacja
     \item Kodowanie
     \item Temperatura?
