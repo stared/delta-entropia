@@ -37,8 +37,11 @@ O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie
 %
     \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)\log_2(x)$. Np. dla podstawy $e$ jednostką jest \emph{nit}.}
 %
-gdzie $\{p_1, \ldots, p_n\}$ to pewien rozkład prawdopodobieństwa. Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \emph{bitach}. 
+gdzie $\{p_1, \ldots, p_n\}$ to pewien rozkład prawdopodobieństwa.
+Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \emph{bitach}.
+Powyższy wzór ma wiele zastosowań i interpretacji.
 
+Ale zanim przejdziemy do nich, spójrzmy na kilka prostych przykładów.
 Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $0 \log(1) = 0$ bitów --- wszak nie ma tu miejsca na losowość.
 Gdy rzucamy uczciwą monetą, entropia to $\tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2) = 1$ bit.
 Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
@@ -63,24 +66,42 @@ Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_{12} \}$ or
     + \sum_{j=1}^2 q_j \log(1/q_j)
 \end{align}
 %
-Przy czym to nie jedyny powód dlaczego entropia ma taką, a nie inną, postać. Logarymtu można też skorzystać w inny sposób, by entropia się dodawała.
+W szczególności $n$ rzutów uczciwą monatą to $n$ bitów bitów entropii.
+Zaraz --- to ciąg \texttt{1011010001} ma większą entropię niż ciąg \texttt{0000000000}? 
+Oj nie --- oba ciągi mają entropię $0$ (bo już znamy ich dokładną postać).
+Zaś jeśli startujemy z danego rozkładu prawdopodobieństwa, to informacja, którą się dowiadujemy to różnica pomiędzy niewiedzą (entropią) początkową a końcową.
 
-Na wzór na entropię Shannona można patrzeć również jak na średnią informację. Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją? Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachącące z prawdopodobieństwem $p$, to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić). Dobrze, ale dlaczego branie średniej ma sens? Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter, każda niezależna od innych, to nie możmemy skompresować bardziej niż do długości $n H$. Z drugiej strony kody Huffmana pozwalają skompresować dość blisko $n H$,
+Na wzór na entropię Shannona można patrzeć również jak na średnią informację.
+Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
+Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachącące z prawdopodobieństwem $p$,
+to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić).
+Dobrze, ale dlaczego branie średniej ma sens?
+Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter, każda niezależna od innych, to nie możmemy skompresować bardziej niż do długości $n H$.
+Z drugiej strony kody Huffmana pozwalają skompresować dość blisko $n H$,
 
 Da się to nawet opisać ``łopatologicznie''.
 
-
-Np. gramy w 20 pytań i chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika. Możemy zapytać ``Czy to jest żywe?'', gdzie mamy z grubsza pół-na-pół szanse, że usłyszymy ``tak'' lub ``nie''.  Zatem zadając takie pytanie, dowiadujemy się
+Np. gramy w 20 pytań i chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika.
+Możemy zapytać ``Czy to jest żywe?'', gdzie mamy z grubsza pół-na-pół szanse, że usłyszymy ``tak'' lub ``nie''.
+Zatem zadając takie pytanie, dowiadujemy się
+%
 \begin{align}
     \tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2)  = 1
 \end{align}
+%
 czyli jeden bit informacji. 
-
-A może warto zadać pierwsze pytanie ``Czy chodzi o krzeszło?''? Wtedy z jednej strony jest mała szansa usłyszenia ``tak'' (powiedzmy, $1/1024$), niemniej gdy takowa odpowiedź padnie dostaniemy sporo informacji  ($-\log(1/1024)=10$). Jednak średnio po uzyskaniu odpowiedzi dostaniemy
+A może warto zadać pierwsze pytanie ``Czy chodzi o krzeszło?''?
+Wtedy z jednej strony jest mała szansa usłyszenia ``tak'' (powiedzmy, $1/1024$),
+niemniej gdy takowa odpowiedź padnie dostaniemy sporo informacji  ($-\log(1/1024)=10$).
+Jednak średnio po uzyskaniu odpowiedzi dostaniemy
+%
 \begin{align}
     \tfrac{1}{1024} \log(2014) + \tfrac{1023}{1024} \log(\tfrac{1024}{1023}) \approx 0.01
 \end{align}
+%
 bita, czyli niewiele.
+Rzecz jasna, czasem nam nie zależy na średniej --- choćby gdy mamy 20.
+Pytanie i urządza nas zgadnięcie, a nie tylko --- dojście bliżej.
 
 \section{TO DO:}
 
