@@ -41,11 +41,15 @@ gdzie $\{p_1, \ldots, p_n\}$ to pewien rozkład prawdopodobieństwa.
 Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \emph{bitach}.
 Powyższy wzór ma wiele zastosowań i interpretacji.
 
+[ALBO MOŻE TUTAJ O NIEWIEDZY?]
+
 Ale zanim przejdziemy do nich, spójrzmy na kilka prostych przykładów.
 Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $0 \log(1) = 0$ bitów --- wszak nie ma tu miejsca na losowość.
 Gdy rzucamy uczciwą monetą, entropia to $\tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2) = 1$ bit.
 Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
-Dla kostki z $6$ ścianami to $\log(6)\approx 2.6$. 
+Dla kostki z $6$ ścianami to $\log(6)\approx 2.6$.
+
+[MOŻE WYKRES ENTROPI DLA 2 MOŻLIWOŚCI?]
 
     % \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
 
@@ -54,14 +58,17 @@ Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii
 %
     \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \href{http://blog.okcupid.com/index.php/how-races-and-religions-match-in-online-dating/}{tymi danymi}.}
 %
-Powedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha. Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
-Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_{12} \}$ oraz uczucie od nas jako $\{q_1, q_2\}$. Tym samym prawdopodobieństwa poszczególnych zdarzeń to iloczyny: $p_i q_j$. Zatem jak z entropią?
+Powedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha.
+Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
+Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_{12} \}$ oraz uczucie do nas jako $\{q_1, q_2\}$.
+Tym samym prawdopodobieństwa poszczególnych zdarzeń to iloczyny: $p_i q_j$.
+Zatem jak z entropią?
 %
 \begin{align}
     \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/(p_i q_j))
     &= \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \left( \log(1/p_i) + \log(1/q_j) \right)\\
     &= \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/p_i)
-    -\sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/q_j)\\
+    +\sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/q_j)\\
     &= \sum_{i=1}^{12} p_i \log(1/p_i)
     + \sum_{j=1}^2 q_j \log(1/q_j)
 \end{align}
@@ -75,13 +82,39 @@ Na wzór na entropię Shannona można patrzeć również jak na średnią inf
 Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
 Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachącące z prawdopodobieństwem $p$,
 to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić).
+
+[MOŻE TU SZERZEJ I BARDZIEJ W STRONĘ 20 PYTAŃ?]
+
 Dobrze, ale dlaczego branie średniej ma sens?
-Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter, każda niezależna od innych, to nie możmemy skompresować bardziej niż do długości $n H$.
-Z drugiej strony kody Huffmana pozwalają skompresować dość blisko $n H$,
+Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter,
+każda niezależna od innych, to nie możmemy średnio skompresować bardziej niż do długości $n H$.
+%Z drugiej strony kody Huffmana pozwalają skompresować dość blisko $n H$,
 
-Da się to nawet opisać ``łopatologicznie''.
+O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
+Liczba słów o długości $n$ nad alfabetem z $d$ literami to $d^n=2^{n \log(d)}$.
+Jeśli chcielibyśmy zakodować owe słowa przy pmocy zer i jedynek,
+by każde słowo miało swój kod binarnym, potrzebujemy $m = n \log(d)$ bitów.
+A co jeśli nie wszystkie litery są równie często używane?
+Przede wszystkim, niektóre ciągi staną się skrajnie mało prawdopodobne.
+Możemy wprowadzić kody o zmiennej długości, by częstsze ciągmi miały krótki kod.
 
-Np. gramy w 20 pytań i chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika.
+Dla zwrócenia uwagi, zróbmy to na ciągu z zero i jedynek, z prawdopodobieństwami $p$ i $q$, odpowiednio.
+Typowy ciąg o długości $n$ (gdzie $n$ jest duże) będzie miał $n p$ zer i $n q$ jedynek.
+Prawdopodobieństwo tego ciągu to $p^{n p}q^{n q}$.
+Można pokazać, że nietypowych ciągów jest bardzo mało, a zatem liczba typowych ciągów to:
+$p^{-n p}q^{-n q}$.
+Czyli, potrzebujemy
+%
+\begin{align}
+    m=n \left( p \log(\tfrac{1}{p}) + q \log(\tfrac{1}{q}) \right)
+\end{align}
+%
+bitów.
+Innym słowem, liczba typowych ciągów rośnie jak $2^{n H}$.
+
+
+I jeszcze jedno praktyczne zastosowanie entropi Shannona, tu --- do gry w \emph{20 pytań}.
+Chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika.
 Możemy zapytać ``Czy to jest żywe?'', gdzie mamy z grubsza pół-na-pół szanse, że usłyszymy ``tak'' lub ``nie''.
 Zatem zadając takie pytanie, dowiadujemy się
 %
@@ -103,20 +136,20 @@ bita, czyli niewiele.
 Rzecz jasna, czasem nam nie zależy na średniej --- choćby gdy mamy 20.
 Pytanie i urządza nas zgadnięcie, a nie tylko --- dojście bliżej.
 
-\section{TO DO:}
+Z pytań do zastanowienia się, jaką entropię mają:
+\begin{item}
+    \item ...kolejność talii 52 kart?
+    \item ...litery w języku polskim?
+    \item ...dwa zdarzenia, które są zależne --- większą czy mniejszą niż suma?
+\end{item}
 
-\begin{itemize}
-    \item Liczenie entropii książek
-    \item Prawdopodobieństwo a informacja
-    \item Kodowanie
-    \item Temperatura?
-\end{itemize}
 
-\section{Kolejne odcinki}
+\section{Propozycje na kolejne odcinki}
 
 \begin{itemize}
     \item Informacja wzajemna
-    \item Inne entropie
+    \item Inne entropie i liczenie różnorodności
+    \item Temperatura
 \end{itemize}
 
 
