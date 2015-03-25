@@ -6,7 +6,7 @@
 %\usepackage {polski}
 \let\lll\undefined
 \usepackage{amssymb,amsmath,amsthm}
-\usepackage{hyperref}
+\usepackage[breaklinks]{hyperref}
 \usepackage{graphicx}
 \marginparwidth=5.2cm \hoffset=2.5cm \textwidth=12.5cm
 \textheight=25.2cm \reversemarginpar \voffset=-1in
@@ -62,21 +62,19 @@ Gdyby ktoś nad powiedział wypadło jedno, dwa lub trzy oczka, nasz wiedza ko�
     \marginpar{\includegraphics[height=3.5cm]{entropia2}\\
     \footnotesize Entropia rzutu obciążoną monetą.}
 
-
-
     % \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
 
 Dlaczego potrzebujemy w tym wzorze logarytmu? 
 Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii składników.
-%
-    \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \href{http://blog.okcupid.com/index.php/how-races-and-religions-match-in-online-dating/}{tymi danymi}.}
-%
 Powedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha.
 Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
 Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_{12} \}$ oraz uczucie do nas jako $\{q_1, q_2\}$.
 Tym samym prawdopodobieństwa poszczególnych zdarzeń to iloczyny: $p_i q_j$.
 Zatem jak z entropią?
 %
+    \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \url{http://bit.ly/dating-zodiac}.}
+%
+
 \begin{align}
     \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/(p_i q_j))
     &= \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \left( \log(1/p_i) + \log(1/q_j) \right)\\
@@ -87,7 +85,11 @@ Zatem jak z entropią?
 \end{align}
 %
 W szczególności $n$ rzutów uczciwą monatą to $n$ bitów bitów entropii.
-
+%
+    \marginpar{\footnotesize Wnikliwy czytelnik może sprawdzić, że też $-\log \sum_{i=1}^n p_i^2$ ma tę własność.
+    I ogólnie cała rodzina \emph{entropi Rényi}, będących uogólnieniem entropii Schannona;
+    przy czym w ogólności nie mają one interpretacji jako informacja.}
+%
 Na wzór na entropię Shannona można patrzeć również jak na średnią informację.
 Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
 Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachącące z prawdopodobieństwem $p$,
@@ -163,9 +165,11 @@ Z pytań do zastanowienia się, jaką entropię mają:
 \end{itemize}
 
 
- \marginpar{\footnotesize  Lektury:\\
-    \href{http://vserver1.cscs.lsa.umich.edu/~crshalizi/notebooks/information-theory.html}{Cosma Schalizi, Information theory}\\
-    \href{http://mathoverflow.net/questions/146463/what-is-entropy-really}{What is entropy, really? - MathOverflow}\\
-    \href{http://www.infinitepartitions.com/art001.html}{Dissecting the GZIP format}}
+    \marginpar{\footnotesize  Lektury:\\
+    Cosma Schalizi, Information theory\\
+    \url{http://bactra.org/notebooks/information-theory.html}
+    \url{http://mathoverflow.net/questions/146463/what-is-entropy-really}\\
+    Dissecting the GZIP format\\
+    \url{http://www.infinitepartitions.com/art001.html}}
 
 \end{document}
