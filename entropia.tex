@@ -7,6 +7,7 @@
 \let\lll\undefined
 \usepackage{amssymb,amsmath,amsthm}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \marginparwidth=5.2cm \hoffset=2.5cm \textwidth=12.5cm
 \textheight=25.2cm \reversemarginpar \voffset=-1in
 %\addtolength{\textheight}{2in}
@@ -41,15 +42,27 @@ gdzie $\{p_1, \ldots, p_n\}$ to pewien rozkład prawdopodobieństwa.
 Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \emph{bitach}.
 Powyższy wzór ma wiele zastosowań i interpretacji.
 
-[ALBO MOŻE TUTAJ O NIEWIEDZY?]
-
 Ale zanim przejdziemy do nich, spójrzmy na kilka prostych przykładów.
 Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $0 \log(1) = 0$ bitów --- wszak nie ma tu miejsca na losowość.
 Gdy rzucamy uczciwą monetą, entropia to $\tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2) = 1$ bit.
 Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
-Dla kostki z $6$ ścianami to $\log(6)\approx 2.6$.
+Dla kostki do gry z $6$ ścianami to $\log(6)\approx 2.6$.
 
-[MOŻE WYKRES ENTROPI DLA 2 MOŻLIWOŚCI?]
+Warto pamiętać, że entropia jest zawsze miarą niewiedzy.
+Stąd np. kostka, na której widzimy wyrzucone dwa oczka ma entropię zero.
+Dowiadujemy się dokładnie tyle, o ile entropia zmalała, tu:
+%
+\begin{align}
+ H(\tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}) - H(0, 1, 0, 0, 0, 0) = \log(6) - \log(1) \approx 2.6.
+\end{align}
+%
+Gdyby ktoś nad powiedział wypadło jedno, dwa lub trzy oczka, nasz wiedza końcowa byłaby niepełna i dowiedzielibyśmy się $\log(6) - \log(3) = 1 $ bit informacji.
+
+
+    \marginpar{\includegraphics[height=3.5cm]{entropia2}\\
+    \footnotesize Entropia rzutu obciążoną monetą.}
+
+
 
     % \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
 
@@ -74,9 +87,6 @@ Zatem jak z entropią?
 \end{align}
 %
 W szczególności $n$ rzutów uczciwą monatą to $n$ bitów bitów entropii.
-Zaraz --- to ciąg \texttt{1011010001} ma większą entropię niż ciąg \texttt{0000000000}? 
-Oj nie --- oba ciągi mają entropię $0$ (bo już znamy ich dokładną postać).
-Zaś jeśli startujemy z danego rozkładu prawdopodobieństwa, to informacja, którą się dowiadujemy to różnica pomiędzy niewiedzą (entropią) początkową a końcową.
 
 Na wzór na entropię Shannona można patrzeć również jak na średnią informację.
 Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
