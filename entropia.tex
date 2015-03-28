@@ -92,16 +92,12 @@ W szczególności $n$ rzutów uczciwą monatą to $n$ bitów bitów entropii.
 %
 Na wzór na entropię Shannona można patrzeć również jak na średnią informację.
 Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
-Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachącące z prawdopodobieństwem $p$,
+Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachodzące z prawdopodobieństwem $p$,
 to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić).
-
-[MOŻE TU SZERZEJ I BARDZIEJ W STRONĘ 20 PYTAŃ?]
 
 Dobrze, ale dlaczego branie średniej ma sens?
 Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter,
 każda niezależna od innych, to nie możmemy średnio skompresować bardziej niż do długości $n H$.
-%Z drugiej strony kody Huffmana pozwalają skompresować dość blisko $n H$,
-
 O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
 Liczba słów o długości $n$ nad alfabetem z $d$ literami to $d^n=2^{n \log(d)}$.
 Jeśli chcielibyśmy zakodować owe słowa przy pmocy zer i jedynek,
@@ -124,6 +120,8 @@ Czyli, potrzebujemy
 bitów.
 Innym słowem, liczba typowych ciągów rośnie jak $2^{n H}$.
 
+
+[A MOŻE 20 PYTAŃ JAKO WPROWADZENIE?]
 
 I jeszcze jedno praktyczne zastosowanie entropi Shannona, tu --- do gry w \emph{20 pytań}.
 Chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika.
