@@ -53,7 +53,9 @@ Stąd np. kostka, na której widzimy wyrzucone dwa oczka ma entropię zero.
 Dowiadujemy się dokładnie tyle, o ile entropia zmalała, tu:
 %
 \begin{align}
- H(\tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}) - H(0, 1, 0, 0, 0, 0) = \log(6) - \log(1) \approx 2.6.
+    H(\tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6})
+    - H(0, 1, 0, 0, 0, 0) = \log(6) - \log(1)
+    \approx 2.6.
 \end{align}
 %
 Gdyby ktoś nad powiedział wypadło jedno, dwa lub trzy oczka, nasz wiedza końcowa byłaby niepełna i dowiedzielibyśmy się $\log(6) - \log(3) = 1 $ bit informacji.
@@ -81,21 +83,20 @@ Zatem jak z entropią?
     &= \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/p_i)
     +\sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/q_j)\\
     &= \sum_{i=1}^{12} p_i \log(1/p_i)
-    + \sum_{j=1}^2 q_j \log(1/q_j)
+    + \sum_{j=1}^2 q_j \log(1/q_j),
 \end{align}
 %
+zatem entropia niezależnych zdarzeń się dodaje.
 W szczególności $n$ rzutów uczciwą monatą to $n$ bitów bitów entropii.
 %
     \marginpar{\footnotesize Wnikliwy czytelnik może sprawdzić, że też $-\log \sum_{i=1}^n p_i^2$ ma tę własność.
     I ogólnie cała rodzina \emph{entropi Rényi}, będących uogólnieniem entropii Schannona;
     przy czym w ogólności nie mają one interpretacji jako informacja.}
 %
-Na wzór na entropię Shannona można patrzeć również jak na średnią informację.
+Na wzór na entropię Shannona można patrzeć również jak na średnią uzyskaną informację.
 Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
-Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachodzące z prawdopodobieństwem $p$,
-to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić).
-
-Choć... ciekawym przykładem może być gra w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a druga druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na `tak' lub `nie'. Zastanawiało mnie czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. `Czy to jest żywe?'), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. `Czy to element biżuterii?').
+Zobaczmy to na przykładzie gry w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a druga druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na `tak' lub `nie'.
+Zastanawiało mnie czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. `Czy to jest żywe?'), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. `Czy to element biżuterii?').
 
 Powiedzmy, że na starcie jest $m$ obiektów i każde z nich jest równoprawdopodobne.
 Zadając pytanie, dla $m$ odpowiedzią jest `tak', dla pozostałych $m-k$ --- `nie'.
@@ -108,11 +109,11 @@ Wiąże się to bezpośrednio z prawdopodobieństwami odpowiedzi:
 Zatem przy nowym pytaniu pozostanie $p_{tak} \times n$ albo $p_{nie} \times n$ obiektów, w zależności od odpowiedzi.
 Interesuje nas nie tyle ile uda nam się zdziałać w jednym pytaniu, ale ile w całej dwudziestce.
 Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik idziemy redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logartym owej redukcji.
-Zatem odpowiednią miarą jest $\log(1/p)$, a owa średnia to:
+Zatem odpowiednią wielkością jest $\log(1/p)$, a owa średnia to:
 %
-\begin{align}
+\begin{equation}
     H = p_{tak} \log \left(\tfrac{1}{p_{tak}} \right) + p_{nie} \log \left(\tfrac{1}{p_{nie}} \right)
-\end{align}
+\end{equation}
 %
 Przy zadawaniu większej liczby pytań, o ile oczywiście możemy mieć więcej lub mniej szczęścia, to średnio logarytm z możliwości to $H_1 + \ldots + H_{q}$, i czym więcej pytań, tym nasz wynik będzie względnie bliżej średniej. 
 Gdy owa wielkość dojdzie do $\log(m)$, to zredukowaliśmy możliwości do jednej, a zatem --- zgadliśmy!
@@ -122,11 +123,9 @@ A co gdy, powiedzmy, zadamy pytanie na które jest tylko $1/1000$ prawdopodobie�
 Jest niewielka szansa, że dowiemy się bardzo dużo ($\log(1000)\approx 10$), ale najprawdopodobniej dowiemy się niezbyt wiele.
 A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
 %
-\begin{align}
-    0.001 \log(1/0.001) + 0.999 \log(1/0.999)
-    \approx 0.001 \times 10.00 + 0.999 \times 0.0014
-    \approx 0.0100 + 0.0014 = 0.0014,
-\end{align}
+\begin{equation}
+    0.001 \log(\tfrac{1}{0.001}) + 0.999 \log(\tfrac{1}{0.999})\approx 0.0100 + 0.0014 = 0.0014,
+\end{equation}
 %
 czyli bardzo niewiele!
 
@@ -144,7 +143,7 @@ Możemy wprowadzić kody o zmiennej długości, by częstsze ciągmi miały kró
 Dla zwrócenia uwagi, zróbmy to na ciągu z zero i jedynek, z prawdopodobieństwami $p$ i $q$, odpowiednio.
 Typowy ciąg o długości $n$ (gdzie $n$ jest duże) będzie miał $n p$ zer i $n q$ jedynek.
 Prawdopodobieństwo tego ciągu to $p^{n p}q^{n q}$.
-Można pokazać, że nietypowych ciągów jest bardzo mało, a zatem liczba typowych ciągów to:
+Można pokazać, że nietypowych ciągów (t.j. mających bardzo różną liczbę wystąpień zer i jedynek) jest bardzo mało, a zatem liczba typowych ciągów to:
 $p^{-n p}q^{-n q}$.
 Czyli, potrzebujemy
 %
@@ -155,6 +154,11 @@ Czyli, potrzebujemy
 bitów.
 Innym słowem, liczba typowych ciągów rośnie jak $2^{n H}$.
 
+    \marginpar{\footnotesize  Lektury:\\
+    Cosma Schalizi, Information theory\\
+    \url{http://bactra.org/notebooks/information-theory.html}\\
+    Dissecting the GZIP format\\
+    \url{http://www.infinitepartitions.com/art001.html}}
 
 Z pytań do zastanowienia się, jaką entropię mają:
 \begin{itemize}
@@ -164,8 +168,12 @@ Z pytań do zastanowienia się, jaką entropię mają:
     \item ...dwa zdarzenia, które są zależne --- większą czy mniejszą niż suma?
 \end{itemize}
 
-Doświadczalne 
-
+Oraz doświadczalne:
+\begin{itemize}
+    \item ...jaka jest entropia pytań w grze w dwadzieścia pytań? (do przetestowania na znajomych)?
+    \item ...jaka jest efektywna wielkość przestrzeni obiektów `pomyślalnych' przez daną osobę?
+\end{itemize}
+I do zastanowienia się --- a co gdy ktoś myśli o rzeczach z nierównomiernym prawdopodobieństwem?
 
 \section{Propozycje na kolejne odcinki}
 
@@ -175,12 +183,5 @@ Doświadczalne
     \item Temperatura
 \end{itemize}
 
-
-    \marginpar{\footnotesize  Lektury:\\
-    Cosma Schalizi, Information theory\\
-    \url{http://bactra.org/notebooks/information-theory.html}
-    \url{http://mathoverflow.net/questions/146463/what-is-entropy-really}\\
-    Dissecting the GZIP format\\
-    \url{http://www.infinitepartitions.com/art001.html}}
 
 \end{document}
