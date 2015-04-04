@@ -95,8 +95,42 @@ Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
 Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachodzące z prawdopodobieństwem $p$,
 to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić).
 
+Choć... ciekawym przykładem może być gra w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a druga druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na `tak' lub `nie'. Zastanawiało mnie czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. `Czy to jest żywe?'), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. `Czy to element biżuterii?').
 
-Dobrze, ale dlaczego branie średniej ma sens?
+Powiedzmy, że na starcie jest $m$ obiektów i każde z nich jest równoprawdopodobne.
+Zadając pytanie, dla $m$ odpowiedzią jest `tak', dla pozostałych $m-k$ --- `nie'.
+Wiąże się to bezpośrednio z prawdopodobieństwami odpowiedzi:
+%
+\begin{equation}
+    p_{tak} = \tfrac{k}{m}, \qquad p_{nie} = \tfrac{m-k}{m}.
+\end{equation}
+%
+Zatem przy nowym pytaniu pozostanie $p_{tak} \times n$ albo $p_{nie} \times n$ obiektów, w zależności od odpowiedzi.
+Interesuje nas nie tyle ile uda nam się zdziałać w jednym pytaniu, ale ile w całej dwudziestce.
+Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik idziemy redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logartym owej redukcji.
+Zatem odpowiednią miarą jest $\log(1/p)$, a owa średnia to:
+%
+\begin{align}
+    H = p_{tak} \log \left(\tfrac{1}{p_{tak}} \right) + p_{nie} \log \left(\tfrac{1}{p_{nie}} \right)
+\end{align}
+%
+Przy zadawaniu większej liczby pytań, o ile oczywiście możemy mieć więcej lub mniej szczęścia, to średnio logarytm z możliwości to $H_1 + \ldots + H_{q}$, i czym więcej pytań, tym nasz wynik będzie względnie bliżej średniej. 
+Gdy owa wielkość dojdzie do $\log(m)$, to zredukowaliśmy możliwości do jednej, a zatem --- zgadliśmy!
+
+Gdy zadamy pytanie `pół na pół', to niezależnie od odpowiedzi dowiadujemy się $\log(1/2)=1$ bit informacji.
+A co gdy, powiedzmy, zadamy pytanie na które jest tylko $1/1000$ prawdopodobieństwo na `tak'?
+Jest niewielka szansa, że dowiemy się bardzo dużo ($\log(1000)\approx 10$), ale najprawdopodobniej dowiemy się niezbyt wiele.
+A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
+%
+\begin{align}
+    0.001 \log(1/0.001) + 0.999 \log(1/0.999)
+    \approx 0.001 \times 10.00 + 0.999 \times 0.0014
+    \approx 0.0100 + 0.0014 = 0.0014,
+\end{align}
+%
+czyli bardzo niewiele!
+
+Entropia jest też mocno związana z tym jak dobrze potrafimy skompresować dane.
 Cóż, to jest treść \emph{podstawowego twierdzenia Shannona}, które mówi, że jeśli mamy ciąg liter,
 każda niezależna od innych, to nie możmemy średnio skompresować bardziej niż do długości $n H$.
 O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
@@ -122,32 +156,6 @@ bitów.
 Innym słowem, liczba typowych ciągów rośnie jak $2^{n H}$.
 
 
-[A MOŻE 20 PYTAŃ JAKO WPROWADZENIE?]
-
-[RYSUNEK ZGADYWANIA?]
-
-I jeszcze jedno praktyczne zastosowanie entropi Shannona, tu --- do gry w \emph{20 pytań}.
-Chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika.
-Możemy zapytać ``Czy to jest żywe?'', gdzie mamy z grubsza pół-na-pół szanse, że usłyszymy ``tak'' lub ``nie''.
-Zatem zadając takie pytanie, dowiadujemy się
-%
-\begin{align}
-    \tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2)  = 1
-\end{align}
-%
-czyli jeden bit informacji. 
-A może warto zadać pierwsze pytanie ``Czy chodzi o krzeszło?''?
-Wtedy z jednej strony jest mała szansa usłyszenia ``tak'' (powiedzmy, $1/1024$),
-niemniej gdy takowa odpowiedź padnie dostaniemy sporo informacji  ($-\log(1/1024)=10$).
-Jednak średnio po uzyskaniu odpowiedzi dostaniemy
-%
-\begin{align}
-    \tfrac{1}{1024} \log(2014) + \tfrac{1023}{1024} \log(\tfrac{1024}{1023}) \approx 0.01
-\end{align}
-%
-bita, czyli niewiele.
-Rzecz jasna, czasem nam nie zależy na średniej --- choćby gdy mamy już ostatnie pytanie i urządza nas zgadnięcie, a nie tylko --- dojście bliżej.
-
 Z pytań do zastanowienia się, jaką entropię mają:
 \begin{itemize}
     \item ...kolejność talii 52 kart?
@@ -155,6 +163,8 @@ Z pytań do zastanowienia się, jaką entropię mają:
     \item ...słowa w języku polskim?
     \item ...dwa zdarzenia, które są zależne --- większą czy mniejszą niż suma?
 \end{itemize}
+
+Doświadczalne 
 
 
 \section{Propozycje na kolejne odcinki}
