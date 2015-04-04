@@ -69,7 +69,7 @@ Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii
 Powedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha.
 Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
 Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_{12} \}$ oraz uczucie do nas jako $\{q_1, q_2\}$.
-Tym samym prawdopodobieństwa poszczególnych zdarzeń to iloczyny: $p_i q_j$.
+Tym samym prawdopodobieństwa poszczególnych, niezależnych zdarzeń to iloczyny: $p_i q_j$.
 Zatem jak z entropią?
 %
     \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \url{http://bit.ly/dating-zodiac}.}
@@ -95,12 +95,13 @@ Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
 Bo gdy mamy kilka równoprawdopodobnych zdarzeń, każde zachodzące z prawdopodobieństwem $p$,
 to potrzebujemy $1/p$ bitów informacji by je odróżnić (każdy bit podwaja liczbę zdarzeń, które możemy rozróżnić).
 
+
 Dobrze, ale dlaczego branie średniej ma sens?
-Cóż, to jest treść twierdzenia Shannona, które mówi, że jeśli mamy ciąg liter,
+Cóż, to jest treść \emph{podstawowego twierdzenia Shannona}, które mówi, że jeśli mamy ciąg liter,
 każda niezależna od innych, to nie możmemy średnio skompresować bardziej niż do długości $n H$.
 O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
 Liczba słów o długości $n$ nad alfabetem z $d$ literami to $d^n=2^{n \log(d)}$.
-Jeśli chcielibyśmy zakodować owe słowa przy pmocy zer i jedynek,
+Jeśli chcielibyśmy zakodować owe słowa przy pomocy zer i jedynek,
 by każde słowo miało swój kod binarnym, potrzebujemy $m = n \log(d)$ bitów.
 A co jeśli nie wszystkie litery są równie często używane?
 Przede wszystkim, niektóre ciągi staną się skrajnie mało prawdopodobne.
@@ -123,6 +124,8 @@ Innym słowem, liczba typowych ciągów rośnie jak $2^{n H}$.
 
 [A MOŻE 20 PYTAŃ JAKO WPROWADZENIE?]
 
+[RYSUNEK ZGADYWANIA?]
+
 I jeszcze jedno praktyczne zastosowanie entropi Shannona, tu --- do gry w \emph{20 pytań}.
 Chcemy zadać pytanie, z którego odpowiedzi najwięcej wynika.
 Możemy zapytać ``Czy to jest żywe?'', gdzie mamy z grubsza pół-na-pół szanse, że usłyszymy ``tak'' lub ``nie''.
@@ -143,13 +146,13 @@ Jednak średnio po uzyskaniu odpowiedzi dostaniemy
 \end{align}
 %
 bita, czyli niewiele.
-Rzecz jasna, czasem nam nie zależy na średniej --- choćby gdy mamy 20.
-Pytanie i urządza nas zgadnięcie, a nie tylko --- dojście bliżej.
+Rzecz jasna, czasem nam nie zależy na średniej --- choćby gdy mamy już ostatnie pytanie i urządza nas zgadnięcie, a nie tylko --- dojście bliżej.
 
 Z pytań do zastanowienia się, jaką entropię mają:
 \begin{itemize}
     \item ...kolejność talii 52 kart?
     \item ...litery w języku polskim?
+    \item ...słowa w języku polskim?
     \item ...dwa zdarzenia, które są zależne --- większą czy mniejszą niż suma?
 \end{itemize}
 
