@@ -30,13 +30,13 @@
 
 O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie, to sama wielkość jest ściśle określonym pojęciem --- \emph{informacją Shannona}:
 %
-    \marginpar{\footnotesize Cześciej jest pisane w sumie $-p_i \log(p_i)$ --- równoważnie ale, moim zdaniem, mniej dydaktycznie.}
+    \marginpar{\footnotesize Częściej jest pisane w sumie $-p_i \log(p_i)$ --- równoważnie ale, moim zdaniem, mniej dydaktycznie.}
 %
 \begin{align}
     H = \sum_{i=1}^{n} p_i \log \left(\tfrac{1}{p_i} \right),\label{eq:entropia}
 \end{align}
 %
-    \marginpar{\footnotesize Korzystatnie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)\log_2(x)$. Np. dla podstawy $e$ jednostką jest \emph{nit}.}
+    \marginpar{\footnotesize Korzystanie z innej podstawy logarytmu, np. $e=2.718\ldots$ przemnoży wynik przez stałą, a zatem odpowiada tylko zmianie jednostek: $\ln(x)=\ln(2)\log_2(x)$. Np. dla podstawy $e$ jednostką jest \emph{nit}.}
 %
 gdzie $\{p_1, \ldots, p_n\}$ to pewien rozkład prawdopodobieństwa.
 Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \emph{bitach}.
@@ -48,9 +48,9 @@ Gdy rzucamy uczciwą monetą, entropia to $\tfrac{1}{2} \log(2) + \tfrac{1}{2} \
 Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
 Dla kostki do gry z $6$ ścianami to $\log(6)\approx 2.6$.
 
-Warto pamiętać, że entropia jest zawsze miarą niewiedzy.
-Stąd np. kostka, na której widzimy wyrzucone dwa oczka ma entropię zero.
-Dowiadujemy się dokładnie tyle, o ile entropia zmalała, tu:
+Warto pamiętać, że entropia jest zawsze miarą niewiedzy.
+Stąd np. kostka, na której widzimy wyrzucone dwa oczka ma entropię zero.
+Dowiadujemy się dokładnie tyle, o ile entropia zmalała, tu:
 %
 \begin{align}
     H(\tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6}, \tfrac{1}{6})
@@ -58,11 +58,11 @@ Dowiadujemy się dokładnie tyle, o ile entropia zmalała, tu:
     \approx 2.6.
 \end{align}
 %
-Gdyby ktoś nad powiedział wypadło jedno, dwa lub trzy oczka, nasz wiedza końcowa byłaby niepełna i dowiedzielibyśmy się $\log(6) - \log(3) = 1 $ bit informacji.
+Gdyby ktoś nad powiedział wypadło jedno, dwa lub trzy oczka, nasz wiedza końcowa byłaby niepełna i dowiedzielibyśmy się $\log(6) - \log(3) = 1 $ bit informacji.
 
 
     \marginpar{\includegraphics[height=3.5cm]{entropia2}\\
-    \footnotesize Entropia rzutu obciążoną monetą.}
+    \footnotesize Entropia rzutu obciążoną monetą.}
 
     % \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
 
@@ -87,14 +87,14 @@ Zatem jak z entropią?
 \end{align}
 %
 zatem entropia niezależnych zdarzeń się dodaje.
-W szczególności $n$ rzutów uczciwą monatą to $n$ bitów bitów entropii.
+W szczególności $n$ rzutów uczciwą monetą to $n$ bitów bitów entropii.
 %
     \marginpar{\footnotesize Wnikliwy czytelnik może sprawdzić, że też $-\log \sum_{i=1}^n p_i^2$ ma tę własność.
     I ogólnie cała rodzina \emph{entropi Rényi}, będących uogólnieniem entropii Schannona;
     przy czym w ogólności nie mają one interpretacji jako informacja.}
 %
 Na wzór na entropię Shannona można patrzeć również jak na średnią uzyskaną informację.
-Dlaczego można traktować $\log(1/p)$ jak cokolwiek zwiazanego z informacją?
+Dlaczego można traktować $\log(1/p)$ jak cokolwiek związanego z informacją?
 Zobaczmy to na przykładzie gry w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a druga druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na `tak' lub `nie'.
 Zastanawiało mnie czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. `Czy to jest żywe?'), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. `Czy to element biżuterii?').
 
@@ -108,7 +108,7 @@ Wiąże się to bezpośrednio z prawdopodobieństwami odpowiedzi:
 %
 Zatem przy nowym pytaniu pozostanie $p_{tak} \times n$ albo $p_{nie} \times n$ obiektów, w zależności od odpowiedzi.
 Interesuje nas nie tyle ile uda nam się zdziałać w jednym pytaniu, ale ile w całej dwudziestce.
-Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logartym owej redukcji.
+Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logarytm owej redukcji.
 Zatem odpowiednią wielkością jest $\log(1/p)$, a owa średnia to:
 %
 \begin{equation}
@@ -131,14 +131,14 @@ czyli bardzo niewiele!
 
 Entropia jest też mocno związana z tym jak dobrze potrafimy skompresować dane.
 Cóż, to jest treść \emph{podstawowego twierdzenia Shannona}, które mówi, że jeśli mamy ciąg liter,
-każda niezależna od innych, to nie możmemy średnio skompresować bardziej niż do długości $n H$.
+każda niezależna od innych, to nie możemy średnio skompresować bardziej niż do długości $n H$.
 O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
 Liczba słów o długości $n$ nad alfabetem z $d$ literami to $d^n=2^{n \log(d)}$.
 Jeśli chcielibyśmy zakodować owe słowa przy pomocy zer i jedynek,
 by każde słowo miało swój kod binarnym, potrzebujemy $m = n \log(d)$ bitów.
 A co jeśli nie wszystkie litery są równie często używane?
 Przede wszystkim, niektóre ciągi staną się skrajnie mało prawdopodobne.
-Możemy wprowadzić kody o zmiennej długości, by częstsze ciągmi miały krótki kod.
+Możemy wprowadzić kody o zmiennej długości, by częstsze ciągi miały krótki kod.
 
 Dla zwrócenia uwagi, zróbmy to na ciągu z zero i jedynek, z prawdopodobieństwami $p$ i $q$, odpowiednio.
 Typowy ciąg o długości $n$ (gdzie $n$ jest duże) będzie miał $n p$ zer i $n q$ jedynek.
