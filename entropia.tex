@@ -43,7 +43,7 @@ Będziemy używać podstawy logarytmu $2$, co odpowiada mierzeniu entropii w \em
 Powyższy wzór ma wiele zastosowań i interpretacji.
 
 Ale zanim przejdziemy do nich, spójrzmy na kilka prostych przykładów.
-Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $0 \log(1) = 0$ bitów --- wszak nie ma tu miejsca na losowość.
+Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $1 \log(1) = 0$ bitów --- wszak nie ma tu miejsca na losowość.
 Gdy rzucamy uczciwą monetą, entropia to $\tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2) = 1$ bit.
 Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
 Dla kostki do gry z $6$ ścianami to $\log(6)\approx 2.6$.
@@ -68,7 +68,7 @@ Gdyby ktoś nad powiedział wypadło jedno, dwa lub trzy oczka, nasz wiedza ko�
 
 Dlaczego potrzebujemy w tym wzorze logarytmu? 
 Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii składników.
-Powedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha.
+Powiedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha.
 Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
 Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_{12} \}$ oraz uczucie do nas jako $\{q_1, q_2\}$.
 Tym samym prawdopodobieństwa poszczególnych, niezależnych zdarzeń to iloczyny: $p_i q_j$.
@@ -99,7 +99,7 @@ Zobaczmy to na przykładzie gry w \emph{dwadzieścia pytań}, w której jedna os
 Zastanawiało mnie czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. `Czy to jest żywe?'), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. `Czy to element biżuterii?').
 
 Powiedzmy, że na starcie jest $m$ obiektów i każde z nich jest równoprawdopodobne.
-Zadając pytanie, dla $m$ odpowiedzią jest `tak', dla pozostałych $m-k$ --- `nie'.
+Zadając pytanie, dla $k$ odpowiedzią jest `tak', dla pozostałych $m-k$ --- `nie'.
 Wiąże się to bezpośrednio z prawdopodobieństwami odpowiedzi:
 %
 \begin{equation}
@@ -108,7 +108,7 @@ Wiąże się to bezpośrednio z prawdopodobieństwami odpowiedzi:
 %
 Zatem przy nowym pytaniu pozostanie $p_{tak} \times n$ albo $p_{nie} \times n$ obiektów, w zależności od odpowiedzi.
 Interesuje nas nie tyle ile uda nam się zdziałać w jednym pytaniu, ale ile w całej dwudziestce.
-Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik idziemy redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logartym owej redukcji.
+Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logartym owej redukcji.
 Zatem odpowiednią wielkością jest $\log(1/p)$, a owa średnia to:
 %
 \begin{equation}
@@ -124,7 +124,7 @@ Jest niewielka szansa, że dowiemy się bardzo dużo ($\log(1000)\approx 10$), 
 A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
 %
 \begin{equation}
-    0.001 \log(\tfrac{1}{0.001}) + 0.999 \log(\tfrac{1}{0.999})\approx 0.0100 + 0.0014 = 0.0014,
+    0.001 \log(\tfrac{1}{0.001}) + 0.999 \log(\tfrac{1}{0.999})\approx 0.0100 + 0.0014 = 0.0114,
 \end{equation}
 %
 czyli bardzo niewiele!
@@ -143,7 +143,8 @@ Możemy wprowadzić kody o zmiennej długości, by częstsze ciągmi miały kró
 Dla zwrócenia uwagi, zróbmy to na ciągu z zero i jedynek, z prawdopodobieństwami $p$ i $q$, odpowiednio.
 Typowy ciąg o długości $n$ (gdzie $n$ jest duże) będzie miał $n p$ zer i $n q$ jedynek.
 Prawdopodobieństwo tego ciągu to $p^{n p}q^{n q}$.
-Można pokazać, że nietypowych ciągów (t.j. mających bardzo różną liczbę wystąpień zer i jedynek) jest bardzo mało, a zatem liczba typowych ciągów to:
+Można pokazać, że nietypowych ciągów (t.j. mających bardzo różną liczbę wystąpień zer i jedynek) jest bardzo mało.
+Zatem, skoro typowe ciągi są równoprawdopodobne, liczba ich to:
 $p^{-n p}q^{-n q}$.
 Czyli, potrzebujemy
 %
@@ -153,6 +154,7 @@ Czyli, potrzebujemy
 %
 bitów.
 Innym słowem, liczba typowych ciągów rośnie jak $2^{n H}$.
+O ile dla niewielkiego $n$ to pewne przybliżenie, to dla $n$ dążącego do nieskończoności zależność jest ścisła.
 
     \marginpar{\footnotesize  Lektury:\\
     Cosma Schalizi, Information theory\\
