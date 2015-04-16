@@ -80,14 +80,14 @@ Gdyby ktoś nad powiedział wypadło jedno, dwa lub trzy oczka, nasz wiedza koń
     % \marginpar{\footnotesize Z matematycznego punktu widzenia $\lim_{p \to 0} p \log(p) = 0$, z fizycznego --- nie chcemy by dodanie nierealistycznej opcji (tj. z zerowym prawdopodobieństwem) zmieniało wynik.}
 
 Dlaczego potrzebujemy w tym wzorze logarytmu? 
-Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii składników.
-Powiedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha.
-Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
+Gdy mamy dwa niezależne zdarzenia, chcemy by ich entropia była sumą entropii składników.
+Powiedzmy, że chcemy dowiedzieć się jaki jest znak zodiaku naszego obiektu westchnień oraz czy nas kocha.
+Nie powinno grać roli czy dowiemy się na raz jednej informacji czy po kawałku.
 Oznaczymy prawdopodobieństwa znaków zodiaku jako $\{p_1, \ldots, p_{12} \}$ oraz uczucie do nas jako $\{q_1, q_2\}$.
 Tym samym prawdopodobieństwa poszczególnych, niezależnych zdarzeń to iloczyny: $p_i q_j$.
 Zatem jak z entropią?
 %
-    \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \url{http://bit.ly/dating-zodiac}.}
+    \marginpar{\footnotesize Czytelnikowi, który zastanawia się czy owe dane są niezależne, polecam zapoznać się z \url{http://bit.ly/dating-zodiac}.}
 %
 
 \begin{align}
@@ -99,17 +99,17 @@ Zatem jak z entropią?
     + \sum_{j=1}^2 q_j \log(1/q_j),
 \end{align}
 %
-zatem entropia niezależnych zdarzeń się dodaje.
-W szczególności $n$ rzutów uczciwą monetą to $n$ bitów bitów entropii.
+zatem entropia niezależnych zdarzeń się dodaje.
+W szczególności $n$ rzutów uczciwą monetą to $n$ bitów bitów entropii.
 %
-    \marginpar{\footnotesize Wnikliwy czytelnik może sprawdzić, że też $-\log \sum_{i=1}^n p_i^2$ ma tę własność.
+    \marginpar{\footnotesize Wnikliwy czytelnik może sprawdzić, że też $-\log \sum_{i=1}^n p_i^2$ ma tę własność.
     I ogólnie cała rodzina \emph{entropi Rényi}, będących uogólnieniem entropii Schannona;
-    przy czym w ogólności nie mają one interpretacji jako informacja.}
+    przy czym w ogólności nie mają one interpretacji jako informacja.}
 %
-Na wzór na entropię Shannona można patrzeć również jak na średnią uzyskaną informację.
-Dlaczego można traktować $\log(1/p)$ jak cokolwiek związanego z informacją?
-Zobaczmy to na przykładzie gry w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a druga druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na `tak' lub `nie'.
-Zastanawiało mnie czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. `Czy to jest żywe?'), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. `Czy to element biżuterii?').
+Na wzór na entropię Shannona można patrzeć również jak na średnią uzyskaną informację.
+Dlaczego można traktować $\log(1/p)$ jak cokolwiek związanego z informacją?
+Zobaczmy to na przykładzie gry w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a druga druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na `tak' lub `nie'.
+Zastanawiało mnie czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. `Czy to jest żywe?'), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. `Czy to element biżuterii?').
 
 Powiedzmy, że na starcie jest $m$ obiektów i każde z nich jest równoprawdopodobne.
 Zadając pytanie, dla $k$ odpowiedzią jest `tak', dla pozostałych $m-k$ --- `nie'.
@@ -121,7 +121,7 @@ Wiąże się to bezpośrednio z prawdopodobieństwami odpowiedzi:
 %
 Zatem przy nowym pytaniu pozostanie $p_{tak} \times n$ albo $p_{nie} \times n$ obiektów, w zależności od odpowiedzi.
 Interesuje nas nie tyle ile uda nam się zdziałać w jednym pytaniu, ale ile w całej dwudziestce.
-Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logarytm owej redukcji.
+Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logarytm owej redukcji.
 Zatem odpowiednią wielkością jest $\log(1/p)$, a owa średnia to:
 %
 \begin{equation}
@@ -133,7 +133,7 @@ Gdy owa wielkość dojdzie do $\log(m)$, to zredukowaliśmy możliwości do jedn
 
 Gdy zadamy pytanie `pół na pół', to niezależnie od odpowiedzi dowiadujemy się $\log(1/2)=1$ bit informacji.
 A co gdy, powiedzmy, zadamy pytanie na które jest tylko $1/1000$ prawdopodobieństwo na `tak'?
-Jest niewielka szansa, że dowiemy się bardzo dużo ($\log(1000)\approx 10$), ale najprawdopodobniej dowiemy się niezbyt wiele.
+Jest niewielka szansa, że dowiemy się bardzo dużo ($\log(1000)\approx 10$), ale najprawdopodobniej dowiemy się niezbyt wiele.
 A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
 %
 \begin{equation}
@@ -142,22 +142,22 @@ A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
 %
 czyli bardzo niewiele!
 
-Entropia jest też mocno związana z tym jak dobrze potrafimy skompresować dane.
-Cóż, to jest treść \emph{podstawowego twierdzenia Shannona}, które mówi, że jeśli mamy ciąg liter,
+Entropia jest też mocno związana z tym jak dobrze potrafimy skompresować dane.
+Cóż, to jest treść \emph{podstawowego twierdzenia Shannona}, które mówi, że jeśli mamy ciąg liter,
 każda niezależna od innych, to nie możemy średnio skompresować bardziej niż do długości $n H$.
-O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
+O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
 Liczba słów o długości $n$ nad alfabetem z $d$ literami to $d^n=2^{n \log(d)}$.
 Jeśli chcielibyśmy zakodować owe słowa przy pomocy zer i jedynek,
 by każde słowo miało swój kod binarnym, potrzebujemy $m = n \log(d)$ bitów.
-A co jeśli nie wszystkie litery są równie często używane?
+A co jeśli nie wszystkie litery są równie często używane?
 Przede wszystkim, niektóre ciągi staną się skrajnie mało prawdopodobne.
 Możemy wprowadzić kody o zmiennej długości, by częstsze ciągi miały krótki kod.
 
 Dla zwrócenia uwagi, zróbmy to na ciągu z zero i jedynek, z prawdopodobieństwami $p$ i $q$, odpowiednio.
 Typowy ciąg o długości $n$ (gdzie $n$ jest duże) będzie miał $n p$ zer i $n q$ jedynek.
 Prawdopodobieństwo tego ciągu to $p^{n p}q^{n q}$.
-Można pokazać, że nietypowych ciągów (t.j. mających bardzo różną liczbę wystąpień zer i jedynek) jest bardzo mało.
-Zatem, skoro typowe ciągi są równoprawdopodobne, liczba ich to:
+Można pokazać, że nietypowych ciągów (t.j. mających bardzo różną liczbę wystąpień zer i jedynek) jest bardzo mało.
+Zatem, skoro typowe ciągi są równoprawdopodobne, liczba ich to:
 $p^{-n p}q^{-n q}$.
 Czyli, potrzebujemy
 %
@@ -167,7 +167,7 @@ Czyli, potrzebujemy
 %
 bitów.
 Innym słowem, liczba typowych ciągów rośnie jak $2^{n H}$.
-O ile dla niewielkiego $n$ to pewne przybliżenie, to dla $n$ dążącego do nieskończoności zależność jest ścisła.
+O ile dla niewielkiego $n$ to pewne przybliżenie, to dla $n$ dążącego do nieskończoności zależność jest ścisła.
 
     \marginpar{\footnotesize  Lektury:\\
     Cosma Schalizi, Information theory\\
@@ -175,20 +175,20 @@ O ile dla niewielkiego $n$ to pewne przybliżenie, to dla $n$ dążącego do nie
     Dissecting the GZIP format\\
     \url{http://www.infinitepartitions.com/art001.html}}
 
-Z pytań do zastanowienia się, jaką entropię mają:
+Z pytań do zastanowienia się, jaką entropię mają:
 \begin{itemize}
-    \item ...kolejność talii 52 kart?
+    \item ...kolejność talii 52 kart?
     \item ...litery w języku polskim?
     \item ...słowa w języku polskim?
-    \item ...dwa zdarzenia, które są zależne --- większą czy mniejszą niż suma?
+    \item ...dwa zdarzenia, które są zależne --- większą czy mniejszą niż suma?
 \end{itemize}
 
 Oraz doświadczalne:
 \begin{itemize}
     \item ...jaka jest entropia pytań w grze w dwadzieścia pytań? (do przetestowania na znajomych)?
-    \item ...jaka jest efektywna wielkość przestrzeni obiektów `pomyślalnych' przez daną osobę?
+    \item ...jaka jest efektywna wielkość przestrzeni obiektów `pomyślalnych' przez daną osobę?
 \end{itemize}
-I do zastanowienia się --- a co gdy ktoś myśli o rzeczach z nierównomiernym prawdopodobieństwem?
+I do zastanowienia się --- a co gdy ktoś myśli o rzeczach z nierównomiernym prawdopodobieństwem?
 
 
 \end{document}
