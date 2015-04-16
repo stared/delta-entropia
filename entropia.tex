@@ -60,6 +60,8 @@ Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $1 \log(1)
 Gdy rzucamy uczciwą monetą, entropia to $\tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2) = 1$ bit.
 Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
 Dla kostki do gry z $6$ ścianami to $\log(6)\approx 2.6$.
+%
+    \marginpar{\footnotesize A jaka jest entropia kolejności talii 52 kart przy tasowaniu?}
 
 Warto pamiętać, że entropia jest zawsze miarą niewiedzy.
 Stąd np. kostka, na której widzimy wyrzucone dwa oczka ma entropię zero.
@@ -103,7 +105,7 @@ zatem entropia niezależnych zdarzeń się dodaje.
 W szczególności $n$ rzutów uczciwą monetą to $n$ bitów bitów entropii.
 %
     \marginpar{\footnotesize Wnikliwy czytelnik może sprawdzić, że też $-\log \sum_{i=1}^n p_i^2$ ma tę własność.
-    I ogólnie cała rodzina \emph{entropi Rényi}, będących uogólnieniem entropii Schannona;
+    I ogólnie cała rodzina \emph{entropi Rényi}, będących uogólnieniem entropii Shannona;
     przy czym w ogólności nie mają one interpretacji jako informacja.}
 %
 Na wzór na entropię Shannona można patrzeć również jak na średnią uzyskaną informację.
@@ -142,6 +144,8 @@ A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
 %
 czyli bardzo niewiele!
 
+    \marginpar{\footnotesize Pozwolę sobie podkusić Czytelnika do zmierzenia (na znajomych) entropii pytań oraz entropii pomyślanych obiektów.}
+
 Entropia jest też mocno związana z tym jak dobrze potrafimy skompresować dane.
 Cóż, to jest treść \emph{podstawowego twierdzenia Shannona}, które mówi, że jeśli mamy ciąg liter,
 każda niezależna od innych, to nie możemy średnio skompresować bardziej niż do długości $n H$.
@@ -174,21 +178,6 @@ O ile dla niewielkiego $n$ to pewne przybliżenie, to dla $n$ dążącego do nie
     \url{http://bactra.org/notebooks/information-theory.html}\\
     Dissecting the GZIP format\\
     \url{http://www.infinitepartitions.com/art001.html}}
-
-Z pytań do zastanowienia się, jaką entropię mają:
-\begin{itemize}
-    \item ...kolejność talii 52 kart?
-    \item ...litery w języku polskim?
-    \item ...słowa w języku polskim?
-    \item ...dwa zdarzenia, które są zależne --- większą czy mniejszą niż suma?
-\end{itemize}
-
-Oraz doświadczalne:
-\begin{itemize}
-    \item ...jaka jest entropia pytań w grze w dwadzieścia pytań? (do przetestowania na znajomych)?
-    \item ...jaka jest efektywna wielkość przestrzeni obiektów `pomyślalnych' przez daną osobę?
-\end{itemize}
-I do zastanowienia się --- a co gdy ktoś myśli o rzeczach z nierównomiernym prawdopodobieństwem?
 
 
 \end{document}
