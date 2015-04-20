@@ -31,15 +31,12 @@
 Filozof może się zadowolić tym, że \emph{``wie, że nic nie wie''}.
 Fizyk zaś potrzebuje wiedzieć \emph{ile} nie wie.
 
-Pojęcie entropii ma swoje źródło w termodynamice i jest związane z tym jak bardzo nie znamy dokładnego mikrostanu układu (tj. położenia i pędu każdej cząstki).
-Przekłada się to na bardzo praktyczne rozważania, choćby --- ile pracy może wykonać dany układ.
-Gdy wiemy o nim wszystko, możemy w pełni wykorzystać jego energię, przekształcając na inne formy.
-Gdy nie --- część energii pozostaje niejako uwięziona przez naszą ignorancję.
+Pojęcie \emph{entropii} ma swoje źródło w termodynamice i jest związane z tym jak bardzo nie znamy dokładnego mikrostanu układu (tj. położenia i pędu każdej cząstki).
+Tylko gdy wiemy o nim wszystko, możemy w pełni wykorzystać jego energię, przekształcając na inne formy.
+Gdy nie --- część energii pozostaje niejako uwięziona.
 
-Później okazało się, że entropia jest równie cenna w teorii informacji --- pozwala ściśle zmierzyć jak dobrze możemy skompresować daną wiadomość, jak bardzo możemy niwelować szum przy przesyłaniu jej oraz jak dbać o prywatność komunikatu nawet jak wiemy, że część informacji może zostać podsłuchana.
-
+Później okazało się, że entropia jest równie cenna w teorii informacji --- pozwala ściśle zmierzyć jak dobrze możemy skompresować daną wiadomość oraz jak bardzo możemy niwelować szum przy jej przesyłaniu.
 Entropia przydaje się również jako miara losowości i korelacji w różnych narzędziach statystycznych.
-Nie dla każdego rozkładu jest prawdopodobieństwa da się policzyć wariancję, lub jest ona sensowna. 
 
 O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie, to sama wielkość (a konkretniej, \emph{entropia Shannona}) jest ściśle określonym pojęciem:
 %
@@ -102,19 +99,19 @@ Zatem jak z entropią?
 \end{align}
 %
 zatem entropia niezależnych zdarzeń się dodaje.
-W szczególności $n$ rzutów uczciwą monetą to $n$ bitów bitów entropii.
+W szczególności $n$ rzutów uczciwą monetą to $n$ bitów entropii.
 %
     \marginpar{\footnotesize Wnikliwy czytelnik może sprawdzić, że też $-\log \sum_{i=1}^n p_i^2$ ma tę własność.
-    I ogólnie cała rodzina \emph{entropi Rényi}, będących uogólnieniem entropii Shannona;
+    I ogólnie cała rodzina \emph{entropii Rényi'ego}, będących uogólnieniem entropii Shannona;
     przy czym w ogólności nie mają one interpretacji jako informacja.}
 %
 Na wzór na entropię Shannona można patrzeć również jak na średnią uzyskaną informację.
 Dlaczego można traktować $\log(1/p)$ jak cokolwiek związanego z informacją?
-Zobaczmy to na przykładzie gry w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a druga druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na `tak' lub `nie'.
-Zastanawiało mnie czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. `Czy to jest żywe?'), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. `Czy to element biżuterii?').
+Zobaczmy to na przykładzie gry w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a druga druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na ``tak'' lub ``nie''.
+Można się zastanowić, czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. ``Czy to jest żywe?''), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. ``Czy to element biżuterii?'').
 
 Powiedzmy, że na starcie jest $m$ obiektów i każde z nich jest równoprawdopodobne.
-Zadając pytanie, dla $k$ odpowiedzią jest `tak', dla pozostałych $m-k$ --- `nie'.
+Zadając pytanie, dla $k$ obiektów odpowiedzią jest ``tak'', dla pozostałych $m-k$ --- ``nie''.
 Wiąże się to bezpośrednio z prawdopodobieństwami odpowiedzi:
 %
 \begin{equation}
@@ -133,8 +130,8 @@ Zatem odpowiednią wielkością jest $\log(1/p)$, a owa średnia to:
 Przy zadawaniu większej liczby pytań, o ile oczywiście możemy mieć więcej lub mniej szczęścia, to średnio logarytm z możliwości to $H_1 + \ldots + H_{q}$, i czym więcej pytań, tym nasz wynik będzie względnie bliżej średniej. 
 Gdy owa wielkość dojdzie do $\log(m)$, to zredukowaliśmy możliwości do jednej, a zatem --- zgadliśmy!
 
-Gdy zadamy pytanie `pół na pół', to niezależnie od odpowiedzi dowiadujemy się $\log(1/2)=1$ bit informacji.
-A co gdy, powiedzmy, zadamy pytanie na które jest tylko $1/1000$ prawdopodobieństwo na `tak'?
+Gdy zadamy pytanie pół na pół, to niezależnie od odpowiedzi dowiadujemy się $\log(1/2)=1$ bit informacji.
+A co gdy, powiedzmy, zadamy pytanie na które jest tylko $1/1000$ prawdopodobieństwo na ``tak''?
 Jest niewielka szansa, że dowiemy się bardzo dużo ($\log(1000)\approx 10$), ale najprawdopodobniej dowiemy się niezbyt wiele.
 A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
 %
@@ -144,18 +141,17 @@ A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
 %
 czyli bardzo niewiele!
 
-    \marginpar{\footnotesize Pozwolę sobie podkusić Czytelnika do zmierzenia (na znajomych) entropii pytań oraz entropii pomyślanych obiektów.}
+    \marginpar{\footnotesize Pozwolę sobie podkusić Czytelnika do doświadczalnego zmierzenia (na znajomych) entropii pytań oraz entropii pomyślanych obiektów.}
 
 Entropia jest też mocno związana z tym jak dobrze potrafimy skompresować dane.
-Cóż, to jest treść \emph{podstawowego twierdzenia Shannona}, które mówi, że jeśli mamy ciąg liter,
+\emph{Podstawowe twierdzenie Shannona} mówi, że jeśli mamy ciąg liter,
 każda niezależna od innych, to nie możemy średnio skompresować bardziej niż do długości $n H$.
 O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
 Liczba słów o długości $n$ nad alfabetem z $d$ literami to $d^n=2^{n \log(d)}$.
 Jeśli chcielibyśmy zakodować owe słowa przy pomocy zer i jedynek,
 by każde słowo miało swój kod binarnym, potrzebujemy $m = n \log(d)$ bitów.
 A co jeśli nie wszystkie litery są równie często używane?
-Przede wszystkim, niektóre ciągi staną się skrajnie mało prawdopodobne.
-Możemy wprowadzić kody o zmiennej długości, by częstsze ciągi miały krótki kod.
+W niektóre ciągi staną się skrajnie mało prawdopodobne gdy przesyłamy wiele liter.
 
 Dla zwrócenia uwagi, zróbmy to na ciągu z zero i jedynek, z prawdopodobieństwami $p$ i $q$, odpowiednio.
 Typowy ciąg o długości $n$ (gdzie $n$ jest duże) będzie miał $n p$ zer i $n q$ jedynek.
@@ -178,6 +174,11 @@ O ile dla niewielkiego $n$ to pewne przybliżenie, to dla $n$ dążącego do nie
     \url{http://bactra.org/notebooks/information-theory.html}\\
     Dissecting the GZIP format\\
     \url{http://www.infinitepartitions.com/art001.html}}
+
+Przykładowo, języku polskim jest używanych $35$ liter (wliczając \texttt{q}, \texttt{x} i \texttt{v} z zapożyczonych słów).
+Jednak niektóre litery występują znacznie częściej niż inne np. \texttt{a} stanowi $9\%$ liter, podczas gdy $\texttt{ź}$ --- tylko $0.06\%$.
+Entropia rozkładu liter to $4.56$ bitów, czyli dałoby się skompresować polski alfabet do alfabetu z $24$ równoprawdopodobnymi literami.
+(A pewnie znacznie bardziej, gdyż litery nie występują losowo --- wszakże są połączone w sylaby, a te --- w słowa.)  
 
 
 \end{document}
