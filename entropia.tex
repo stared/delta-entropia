@@ -28,8 +28,6 @@
 
 \medskip
 
-PRZEMYSLEC MYSLINIKI
-
 Filozof może się zadowolić tym, że \emph{``wie, że nic nie wie''}.
 Fizyk zaś potrzebuje wiedzieć \emph{ile} nie wie.
 
@@ -42,7 +40,7 @@ Przydaje się ona również jako miara losowości i korelacji w różnych narzę
 
 O ile entropia jest używana w języku potocznym jako chaos i nieuporządkowanie, to sama wielkość (a konkretniej, \emph{entropia Shannona}) jest ściśle określonym pojęciem:
 %
-    \marginpar{\footnotesize Częściej jest pisane w sumie $-p_i \log(p_i)$ --- równoważnie ale, moim zdaniem, mniej dydaktycznie.}
+    \marginpar{\footnotesize Częściej jest pisane jako $- \sum_{i=1}^n p_i \log(p_i)$ --- równoważnie ale, moim zdaniem, mniej dydaktycznie.}
 %
 \begin{align}
     H = \sum_{i=1}^{n} p_i \log \left(\tfrac{1}{p_i} \right),\label{eq:entropia}
@@ -57,7 +55,7 @@ Powyższy wzór ma wiele zastosowań i interpretacji.
 Ale zanim przejdziemy do nich, spójrzmy na kilka prostych przykładów.
 Gdy nasz rozkład składa się z jednej możliwości, entropia wynosi $1 \log(1) = 0$ bitów --- wszak nie ma tu miejsca na losowość.
 Gdy rzucamy uczciwą monetą, entropia to $\tfrac{1}{2} \log(2) + \tfrac{1}{2} \log(2) = 1$ bit.
-Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy entropia to $\log(n)$.
+Entropia jest największa, gdy dla ustalonej liczby zdarzeń wszystkie są równo prawdopodobne --- wtedy wynosi ona $\log(n)$.
 Dla kostki do gry z $6$ ścianami to $\log(6)\approx 2.6$.
 %
     \marginpar{\footnotesize A jaka jest entropia kolejności talii 52 kart przy tasowaniu?}
@@ -88,51 +86,54 @@ Zatem jak z entropią?
 %
 
 \begin{align}
-    \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/(p_i q_j))
+    \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/(p_i q_j))\label{eq:suma}
     &= \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \left( \log(1/p_i) + \log(1/q_j) \right)\\
     &= \sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/p_i)
-    +\sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/q_j)\\
+    +\sum_{i=1}^{12} \sum_{j=1}^2 p_i q_j \log(1/q_j)\nonumber\\
     &= \sum_{i=1}^{12} p_i \log(1/p_i)
-    + \sum_{j=1}^2 q_j \log(1/q_j),
+    + \sum_{j=1}^2 q_j \log(1/q_j),\nonumber
 \end{align}
 %
-zatem entropia niezależnych zdarzeń się dodaje.
-W szczególności $n$ rzutów uczciwą monetą to $n$ bitów entropii.
+zatem entropia niezależnych zdarzeń dodaje się.
+W szczególności: $n$ rzutów uczciwą monetą to $n$ bitów entropii.
 %
     \marginpar{\footnotesize Wnikliwy czytelnik może sprawdzić, że też $-\log \sum_{i=1}^n p_i^2$ ma tę własność.
     I ogólnie cała rodzina \emph{entropii Rényi'ego}, będących uogólnieniem entropii Shannona;
     przy czym w ogólności nie mają one interpretacji jako informacja.}
 %
+
 Na wzór na entropię Shannona można patrzeć również jak na średnią uzyskaną informację.
-Dlaczego można traktować $\log(1/p)$ jak cokolwiek związanego z informacją?
 Zobaczmy to na przykładzie gry w \emph{dwadzieścia pytań}, w której jedna osoba wymyśla jakąś rzecz, a  druga ma za zadanie zgadnąć o co chodzi, zadając po kolei pytania na ``tak'' lub ``nie''.
 Można się zastanowić, czy warto zadawać pytania, które są z grubsza \emph{pół na pół} (np. ``Czy to jest żywe?''), czy też takie w których jest niewielka szansa, że dużo się rozjaśni (np. ``Czy to element biżuterii?'').
 
-Powiedzmy, że na starcie jest $m$ obiektów i każde z nich jest równoprawdopodobne.
-Zadając pytanie, dla $k$ obiektów odpowiedzią jest ``tak'', dla pozostałych $m-k$ --- ``nie''.
+Powiedzmy, że na starcie jest $m$ możliwych obiektów i każde z nich jest równoprawdopodobne.
+Jeśli zadamy pytanie, dla $t$ obiektów odpowiedzią jest ``tak'', dla pozostałych $m-t$ --- ``nie''.
 Wiąże się to bezpośrednio z prawdopodobieństwami odpowiedzi:
 %
 \begin{equation}
-    p_{tak} = \tfrac{k}{m}, \qquad p_{nie} = \tfrac{m-k}{m}.
+    p_{tak} = \tfrac{t}{m}, \qquad p_{nie} = \tfrac{m-t}{m}.
 \end{equation}
 %
-Zatem przy nowym pytaniu pozostanie $p_{tak} n$ albo $p_{nie} n$ obiektów, w zależności od odpowiedzi.
-Interesuje nas nie tyle ile uda nam się zdziałać w jednym pytaniu, ale ile w całej dwudziestce.
-Skoro prawdopodobieństwa się mnożą, odpowiednią miarą jest o jaki czynnik redukujemy liczbę obiektów, które możliwym `pomyślanym' obiektem, to logarytm owej redukcji.
-Zatem odpowiednią wielkością jest $\log(1/p)$, a owa średnia to:
+Zatem po uzyskaniu odpowiedzi zbiór możliwych obiektów zmiejsza się do $p_{tak} m$ albo $p_{nie} m$.
+Po zadaniu $2$ pytań, dla uposzczenia przyjmując, że z tymi samymi prawdopodobieństwami, dostajemy $4$ możliwości:
+$p_{tak} p_{tak} m$, $p_{nie} p_{tak} m$, $p_{tak} p_{nie} m$ albo $p_{nie} p_{nie} m$.
+Wygramy w sytuacji, gdy po iluś pytaniach zredukujemy liczbę możliwości do tylko jednej.
+O ile może być w tym trochę szczęścia, to przy większej liczbie pytań (a mamy do dyspozycji ich aż $20$), możemy śledzić co się \emph{średnio} stanie.
+Skoro przy dodawaniu kolejnych pytań prawdopodobieństwa się mnożą to wielkością, którą chcemy uśredniać jest wspomiany logartym prawdopodobieństwa, czyli otrzymujemy:
 %
 \begin{equation}
-    H = p_{tak} \log \left(\tfrac{1}{p_{tak}} \right) + p_{nie} \log \left(\tfrac{1}{p_{nie}} \right)
+    H = p_{tak} \log \left(\tfrac{1}{p_{tak}} \right) + p_{nie} \log \left(\tfrac{1}{p_{nie}} \right),
 \end{equation}
 %
-Przy zadawaniu większej liczby pytań, o ile oczywiście możemy mieć więcej lub mniej szczęścia, to średnio logarytm z możliwości to $H_1 + \ldots + H_{q}$, i czym więcej pytań, tym nasz wynik będzie względnie bliżej średniej. 
-Gdy owa wielkość dojdzie do $\log(m)$, to zredukowaliśmy możliwości do jednej, a zatem --- zgadliśmy!
-POPRAWIC
+--- to samo co \eqref{eq:entropia}.
+Po zadaniu $k$ pytań dowiadujemy się średnio $k H$ informacji.
+Wielkość ta to $\sum_p p \log(1/p)$, gdzie $p$ to jest prawdopodobieństo uzyskania każdego ciągu odpowiedzi.
+Jeśli jej wartość dojdzie do $\log(m)$ to średnio $p = 1/m$, a zatem liczba możliwych obiektów zostanie zredukowana do jednej, czyli: zgadliśmy!
 %
     \marginpar{\includegraphics[height=3.5cm]{entropia2}\\
     \footnotesize Entropia przy dwóch możliwościach, $H(p, 1 - p)$, czyli np. rzutu nieuczciwą monetą ($p$ to prawdopodobieństwo orła) lub odpowiedzi na pytanie ($p$ to prawdopodobieństwo ``tak''). Maksimum, równe 1 bitowi, osiąga dla $p=1/2$.}
 %
-Gdy zadamy pytanie pół na pół, to niezależnie od odpowiedzi dowiadujemy się $\log(1/2)=1$ bit informacji.
+Gdy zadamy pytanie \emph{pół na pół}, to niezależnie od odpowiedzi dowiadujemy się $\log(1/2)=1$ bit informacji.
 A co gdy, powiedzmy, zadamy pytanie na które jest tylko $1/1000$ prawdopodobieństwo na ``tak''?
 Jest niewielka szansa, że dowiemy się bardzo dużo ($\log(1000)\approx 10$), ale najprawdopodobniej dowiemy się niezbyt wiele.
 A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
@@ -142,17 +143,17 @@ A sumarycznie, będzie lepiej czy gorzej? Zobaczmy!
 \end{equation}
 %
 czyli bardzo niewiele!
-Zresztą, pół na pół średnio dostarcza najwięcej informacji --- patrz wykres na marginesie. 
+Zresztą, \emph{pół na pół} średnio dostarcza najwięcej informacji --- patrz wykres na marginesie. 
 
     \marginpar{\footnotesize Pozwolę sobie podkusić Czytelnika do doświadczalnego zmierzenia (na znajomych) entropii pytań oraz entropii pomyślanych obiektów.}
 
 Entropia jest też mocno związana z tym jak dobrze potrafimy skompresować dane.
-\emph{Podstawowe twierdzenie Shannona} mówi, że jeśli mamy ciąg liter,
-każda niezależna od innych, to nie możemy średnio skompresować bardziej niż do długości $n H$.
+\emph{Podstawowe twierdzenie Shannona} mówi, że jeśli mamy ciąg $n$ liter,
+każda niezależna od innych i z entropią $H$, to nie możemy ich skompresować do długości krótszej niż $n H$.
 O ile stoją za tym pewne szczegóły techniczne, główną ideę można oddać zliczając ciągi.
-Liczba słów o długości $n$ nad alfabetem z $d$ literami to $d^n=2^{n \log(d)}$.
-Jeśli chcielibyśmy zakodować owe słowa przy pomocy zer i jedynek,
-by każde słowo miało swój kod binarnym, potrzebujemy $m = n \log(d)$ bitów.
+Liczba słów o długości $n$ z alfabetu z $d$ literami to $d^n=2^{n \log(d)}$.
+Jeśli chcielibyśmy zakodować owe słowa przy pomocy zer i jedynek
+tak, by każde słowo miało swój kod binarnym, potrzebujemy $m = n \log(d)$ bitów.
 A co jeśli nie wszystkie litery są równie często używane?
 W niektóre ciągi staną się skrajnie mało prawdopodobne gdy przesyłamy wiele liter.
 
@@ -162,8 +163,10 @@ W niektóre ciągi staną się skrajnie mało prawdopodobne gdy przesyłamy wiel
 Dla zwrócenia uwagi, zróbmy to na ciągu z zero i jedynek, z prawdopodobieństwami $p$ i $q$, odpowiednio.
 Typowy ciąg o długości $n$ (gdzie $n$ jest duże) będzie miał $n p$ zer i $n q$ jedynek.
 Prawdopodobieństwo tego ciągu to $p^{n p}q^{n q}$.
+O ile, rzecz jasna, często można otrzymać ciągi z mniejszą lub większą liczbą zer i jedynek
+
 Można pokazać, że nietypowych ciągów (t.j. mających bardzo różną liczbę wystąpień zer i jedynek) jest bardzo mało.
-Zatem, skoro typowe ciągi są równoprawdopodobne, liczba ich to:
+Prawdopodobieństwo musi się sumować do jedności, zatem, skoro typowe ciągi są równoprawdopodobne, liczba ich to:
 $p^{-n p}q^{-n q}$.
 Czyli, potrzebujemy
 %
